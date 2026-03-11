@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"kyla-totp/utils"
+	"kyla-2FA/utils"
 	"log"
 	"time"
 

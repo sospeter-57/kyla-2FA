@@ -1,4 +1,4 @@
-module kyla-totp
+module kyla-2FA
 
 go 1.22.2
 
