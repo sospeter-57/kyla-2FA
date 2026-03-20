@@ -1,37 +1,36 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"time"
-
-	"kyla-2FA/utils"
-
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
-	"github.com/pquerna/otp/totp"
+	"fyne.io/fyne/v2/canvas"
+	"fyne.io/fyne/v2/container"
 )
 
 func main() {
-	randomBytes := utils.GenerateRandomBytes(32)
-	encodedSecret := utils.EncodeBase64(randomBytes)
 
-	// create the main window
+	// set up and initialize application and main window
 	app := app.New()
 	window := app.NewWindow("kyla-2FA")
+	window.Resize(fyne.NewSize(600, 400))
 	window.CenterOnScreen()
-	window.Resize(fyne.NewSize(700, 500))
 
-	// create a label widget
-	label := widget.NewLabel("just kidding here and there with fyne qt bindings")
-	window.SetContent(label)
+	// fetch application logo
+	logo := getLogo()
 
-	code, err := totp.GenerateCode(encodedSecret, time.Now())
-	if err != nil {
-		log.Fatal("Error: ", err)
-	}
+	// create application's main container for main window
+	container := container.NewVBox()
+	container.Add(&logo)
 
-	fmt.Println("TOTP code: ", code)
-	window.ShowAndRun()
+	// set contents to main window, show and run window
+	window.SetContent(container)
+	window.Show()
+	app.Run()
+}
+
+func getLogo() canvas.Image {
+	logo := canvas.NewImageFromFile("assets/kyla-2FA_logo.png")
+	logo.FillMode = canvas.ImageFillContain
+	logo.SetMinSize(fyne.NewSize(200, 100))
+	return *logo
 }
