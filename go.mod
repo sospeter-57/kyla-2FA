@@ -1,6 +1,6 @@
 module kyla-2FA
 
-go 1.22.2
+go 1.26
 
 require github.com/pquerna/otp v1.5.0
 
