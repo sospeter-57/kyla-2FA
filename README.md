@@ -72,3 +72,15 @@ Contributions are welcome! Please fork the repo, make your changes, and submit a
 
 **License**
 Apache 2.0 LICENSE: https://www.apache.org/licenses/LICENSE-2.0
+
+
+**Building from source**
+
+building for linux
+    go build -o kyla-2FA main.go
+
+building for windows
+    env CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc go build -o kyla-2FA.exe main.go
+    dependencies
+        - 
+

@@ -215,9 +215,14 @@ func showAddAccountDialog() {
 			dialog.ShowInformation("Saved", "Account added", MainWindow)
 		},
 	}
-	form.Resize(fyne.NewSize(500, 200))
+	// form.Resize(fyne.NewSize(500, 600))
 
-	dialog.ShowCustom("Add Account", "Cancel", form, MainWindow)
+	// dialog.ShowCustom("Add Account", "Cancel", form, MainWindow)
+	formContainer := container.NewVBox(form);
+	
+	dlg := dialog.NewCustom("Add Account", "Cancel", formContainer, MainWindow)
+	dlg.Resize(fyne.NewSize(500, 300))
+	dlg.Show()
 }
 
 func removeSelectedAccount() {
