@@ -8,8 +8,6 @@ kyla-2FA is a cross-platform, desktop two-factor authentication (2FA) applicatio
 
 - Secure local storage of secrets (encrypted)
 
-- QR code scanning for easy account setup
-
 - Manual secret entry for sites without QR codes
 
 - Copy TOTP codes to clipboard
@@ -18,7 +16,6 @@ kyla-2FA is a cross-platform, desktop two-factor authentication (2FA) applicatio
 
 - PIN or biometric lock for app access
 
-- Dark/light theme support
 
 **Installation**
 
@@ -52,6 +49,10 @@ Select the account/site from the dropdown to generate TOTP codes.
 Use the copy button to quickly copy codes to your clipboard.
 
 **Roadmap / Future Enhancements**
+- Dark/light theme support
+
+- QR code scanning for easy account setup
+
 - Backup and restore of all accounts
 
 - Implement encrypted cloud sync for cross-device usage.
@@ -82,5 +83,4 @@ building for linux
 building for windows
     env CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc go build -o kyla-2FA.exe main.go
     dependencies
-        - 
-
+        -
